@@ -1,0 +1,39 @@
+FROM node:12
+
+WORKDIR /WsCashIn_Out
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3020
+
+CMD ["npm","run","start:sandbox"]
+
+# heroku login
+# docker ps
+# heroku container:login
+# heroku container:push web -a api-procesador
+# heroku container:release web -a api-procesador
+
+
+#---------------------------    Eliminar imagenes     --------------------------
+
+# docker rm -v -f $(docker ps -a -q) eliminar todos los contenedores
+# docker rmi -f $(docker images -a -q) eliminar todas las imagenes
+
+#=========================  sanbdox ===========================
+# aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 649240823080.dkr.ecr.us-east-1.amazonaws.com
+# docker build -t ct-api-procesador-pagos-qa -f Dockerfile.sandbox .
+# docker run -d -it -p 8080:80 --name ct-api-procesador-pagos-qa ct-api-procesador-pagos-qa // ejecutar para validar que se levante el servicio de forma local (abrir en el navegador : http://localhost:80)
+# docker tag ct-api-procesador-pagos-qa:latest 649240823080.dkr.ecr.us-east-1.amazonaws.com/ct-api-procesador-pagos-qa:latest
+# docker tag ct-api-procesador-pagos-qa:latest 649240823080.dkr.ecr.us-east-1.amazonaws.com/ct-api-procesador-pagos-qa:v1
+# docker push 649240823080.dkr.ecr.us-east-1.amazonaws.com/ct-api-procesador-pagos-qa --all-tags
+
+
+#==================== LIMPIAR LOGS DOCKER ==========================
+#sudo docker inspect --format='{{.LogPath}}' e722  # OBTIENE EL PATH DEL LOG DEL CONTENEDOR
+#truncate -s 0 /var/lib/docker/containers/*/*-json.log
+#truncate -s 0 /var/lib/docker/containers/e722d28a7f0f8ac874f58895407d6a8d5ec6e27daab8445665cedf72d89a8b1d/e722d28a7f0f8ac874f58895407d6a8d5ec6e27daab8445665cedf72d89a8b1d-json.log

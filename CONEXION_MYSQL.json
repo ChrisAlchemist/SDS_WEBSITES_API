@@ -1,0 +1,9 @@
+mysql 
+-h 
+mainline.proxy.rlwy.net 
+-u 
+root 
+-p 
+WjwmodCCDOsRyUjRdsUXpDOSBTvIaVFI 
+--port 47325 
+--protocol=TCP railway

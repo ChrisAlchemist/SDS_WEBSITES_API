@@ -1,0 +1,36 @@
+{
+    "name": "cashin_cashout",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start:prod": "cross-env NODE_ENV=production node src/app.js",
+        "dev": "cross-env NODE_ENV=development  nodemon src/app.js",
+        "start:sandbox": "cross-env NODE_ENV=sandbox node src/app.js",
+        "prod": "cross-env NODE_ENV=production  nodemon src/app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "app-root-path": "^3.0.0",
+        "aws-sdk": "^2.785.0",
+        "axios": "^0.21.1",
+        "basic-ftp": "^5.0.3",
+        "body-parse": "^0.1.0",
+        "btoa": "^1.2.1",
+        "cors": "^2.8.5",
+        "cross-env": "^7.0.2",
+        "crypto-js": "^4.0.0",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "mysql": "^2.18.1",
+        "nodemon": "^2.0.4",
+        "otplib": "^12.0.1",
+        "swagger-jsdoc": "^4.0.0",
+        "swagger-ui-express": "^4.1.6",
+        "winston": "^3.2.1"
+    }
+}
